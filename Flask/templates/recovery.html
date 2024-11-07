@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+{% block title %}recovery{% endblock %}
+{% block content %}
+<div class="registr">
+    <div>
+        <h1 class="textregistr" style="margin-bottom: 80px; padding-top: 20px; text-align: center; font-size: 40px;">Відновлення пароля</h1>
+            <div class="where">
+                <h2 class="textregistr">Електрона адреса</h2>
+                <input type="email" class="inputregistr">
+            </div>
+
+        <div class="where" style="margin-top: 50px; font-size: 35px;">
+            <button class="buttonregistr">Продовжити</button>
+        </div>
+        <div class="where" >
+            <div>
+                <div>
+                    <form action="/recoverynumber">
+                        <button class="buttonregistr" style="margin: 120px 0 20px;">Інший спосіб відновлення</button>
+                    </form>
+                </div>
+                <div>
+                    <form action="/login">
+                        <button class="buttonregistr" style="margin-left: 17%;">Згадали пароль?</button>
+                    </form>
+                </div>
+            </div>      
+        </div> 
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

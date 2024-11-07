@@ -1,0 +1,384 @@
+/*header*/
+#header{
+    padding: 10px 15px 40px;
+    background-color: blue;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+
+#ul{
+    list-style-type: none;
+    display: flex;
+    float: right;
+    margin: 5px 0px;
+
+    
+}
+
+#li{
+    
+    margin-left: 20px;
+    background-color: blueviolet;
+    border-radius: 5px;
+
+}
+
+.navbar{
+    display: flex;
+    background-color: brown;
+    padding: 5px;
+}
+
+.logohref{
+    flex: 1;
+    padding: 0px 15px;
+}
+
+.buttons{
+    flex: 5;
+    padding: 0px 15px;
+}
+.alogo{
+    width: 50px;
+    height: 50px;
+}
+/*headerend*/
+
+.top{
+    text-align: center;
+}
+/*slider*/
+
+.slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    height: 300px;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* Кожен слайд */
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Кнопки перемикання */
+.button-container {
+    display: flex;
+    margin: 10px;
+}
+
+.slider-button:hover {
+    background-color: #555;
+}
+
+/* Додаємо клас 'active' для відображення активного слайда з плавним переходом */
+.active {
+    display: block;
+    opacity: 1;
+}
+
+/*sliderend*/
+
+/*main*/
+main{
+    /* height: auto;  */
+    min-height: 1000px;
+    background-color: #252525;
+}
+#bottompage{
+    padding-top: 100px;
+}
+
+/*mainend*/
+
+
+
+
+
+/*footer*/
+footer{
+    bottom: 0px;
+    background-color: black;
+    width: 100%;
+    height: 200px;
+}
+.centertext{
+    text-align: center;
+}
+footer{
+    margin-top: 300px;
+}
+/*footerend*/
+
+
+
+
+
+
+/*likestart*/
+
+.bgofpage{
+    background-color: gray;
+    border-radius: 20px;
+    max-width: 1400px;
+    margin: 3% auto;
+    height: auto;
+}
+.list{
+    background-color: red;
+    border-radius: 20px;
+    width: 92%;
+    margin-left: 4%;
+    display: flex; 
+    align-items: center;
+    height: 40px;
+}
+#myBlock {
+    width: 92%;
+    height: 0px;
+    margin-left: 4%;
+    border-radius: 20px;
+    background-color: lightblue;
+    transition: all 0.3s; /* Додаємо плавний перехід */
+}
+
+
+.visible{
+    background: none; 
+    border: none;
+    display: none;
+}
+.modal {
+    display: none; /* Сховати за замовчуванням */
+    position: fixed; /* Залишити вікно на одному місці */
+    left: 0;
+    top: 0;
+    width: 100%; /* Повна ширина */
+    height: 100%; /* Повна висота */
+    background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий фон */
+    justify-content: center; /* Центрування по горизонталі */
+    align-items: center; /* Центрування по вертикалі */
+    z-index: 1000; /* Відправити на передній план */
+}
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px; /* Ширина модального вікна */
+    text-align: center; /* Центрувати текст */
+    position: relative; /* Для позиціонування кнопки закриття */
+}
+.close {
+    cursor: pointer;
+    color: red; /* Колір для кнопки закриття */
+    font-weight: bold;
+    position: absolute; /* Позиціюємо кнопку закриття */
+    top: 10px; /* Відступ зверху */
+    right: 15px; /* Відступ справа */
+}
+
+.likeitem{
+    /* margin-right: 26px; */
+    width: 20%;
+    height: 300px;
+    background-color: blue;
+    margin: 5px 20px;
+    border-radius: 20px;
+}
+.bottominfo{
+    background-color: black;
+    text-align: center;
+    height: 90px;
+    border-radius: 0 0 20px 20px;
+
+}
+.likeimg{
+    margin: 0 auto;
+    width: 100%;
+    height: 210px;
+    border-radius: 20px 20px 0 0;
+}
+
+/*registrstart*/
+.registr{
+    width: 600px;
+    height: 550px;
+    margin: 3% auto;
+    background-color: #888;
+    border-radius: 20px;
+}
+.textregistr{
+   font-size: 20px; 
+}
+.inputregistr{
+    background-color: #bebebe;
+    width: 80%;
+    margin: 6px 10%;
+}
+.buttonregistr{
+    background-color: brown;
+    border-radius: 15px;
+}
+.where{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.wheredop{
+    display: inline-block;
+    margin-left: 28%;
+}
+/*registrend*/
+
+
+
+/*accauntstart*/
+.bg{
+    justify-content: center; 
+    align-items: center;
+    height: 1000px;
+    max-width: 1200px;
+    margin: 10px auto;
+    background-color: #888;
+    border-radius: 20px;
+
+}
+
+.acaunttext{
+    font-size: 30px;
+    text-align: center;
+}
+
+
+/*basketstart*/
+.basketbg{
+    background-color: #888;
+    max-width: 1400px;
+    height: auto;
+    margin: 15px auto;
+    display: flex;
+    border-radius: 20px;
+}
+.basketitem{
+    background-color: white;
+    width: 800px;
+    height: auto;
+    margin: 15px auto 15px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.basketbuy{
+    background-color: white;
+    width: 500px;
+    height: 350px;
+    margin: 15px auto ;
+    padding: 20px;
+    border-radius: 20px;
+    position: sticky;
+    top: 110px;
+}
+.basketimg{
+    width: 180px;
+}
+.textitem{
+    margin: 10px 20px;
+    width: 330px;
+    overflow-wrap: break-word;
+}
+.counter{
+    width: 200px;
+}
+.counterbutton{
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+}
+.sentadress{
+    font-size: 0px;
+}
+.selectField {
+    display: none; /* Ховаємо поля за замовчуванням */
+}
+.borderitem{
+    border: 2px solid #000;
+    padding: 20px;
+    margin: 20px;
+}
+
+
+
+/*items start*/
+.item{
+    max-width: 1400px;
+    margin: 10px auto;
+}
+.itembg{
+    background-color: #888;
+    height: 1000px;
+    border-radius: 20px;
+}
+.itemimg{
+    width: 800px;
+    padding-left: 80px;
+}
+.itemtext{
+    overflow-wrap: break-word;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.itembutton{
+    margin-top: 140px;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.reviews{
+    width: 1000px;
+    background-color: #fefefe;
+    border-radius: 20px;
+}
+.question{
+    width: 1000px;
+    background-color: #fefefe;
+    border-radius: 20px;
+}
+.info{
+    width: 1000px;
+    background-color: #fefefe;
+    border-radius: 20px;
+}
+#visible1{
+    display: flex;
+}
+#visible2{
+    display: none;
+}
+#visible3{
+    display: none;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+{% extends 'home.html' %}
+<head>
+    <script rel="stylesheet" src="{{url_for('static', filename='js/main.js' )}}"></Script>
+    {% block title %}like{% endblock %}
+</head>
+
+
+{% block content %}
+<div class="bgofpage">
+    <h1 class="centertext">Списки вподобань</h1>
+    <div class="list">
+        <h1 style="flex: 1">Список</h1>
+        <div>
+            <button style="background: none; border: none;" onclick="changeSize()">+</button>
+            
+        </div>
+        
+        <div>
+            <button class="visible" id="openModal">-</button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModal">&times;</span>
+                    <h2>Видалити список?</h2>
+                    <p>Якщо видалити список весь його вміст буде знищено</p>
+                    <button id="deleteList">Видалити</button>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div id="myBlock">
+        <div style="display: flex; justify-content: center;">
+            <div class="likeitem">
+                <div>
+                    <form action="">
+                        <img  class="likeimg" src="{{url_for('static', filename='img/2.jpg')}}" alt="">
+                    </form>
+                </div>
+                <div class="bottominfo">
+                    <h1>fsfsdf</h1>
+                </div>
+            </div>
+            <div class="likeitem">
+                <div>
+                    <form action="">
+                        <img  class="likeimg" src="{{url_for('static', filename='img/1.png')}}" alt="">
+                    </form>
+                </div>
+                <div class="bottominfo">
+                    <h1>fsfsdf</h1>
+                </div>
+            </div>
+            <div class="likeitem">
+                <div>
+                    <form action="">
+                        <img  class="likeimg" src="{{url_for('static', filename='img/1.png')}}" alt="">
+                    </form>
+                </div>
+                <div class="bottominfo">
+                    <h1>fsfsdf</h1>
+                </div>
+            </div>
+            <div class="likeitem">
+                <div>
+                    <form action="">
+                        <img  class="likeimg" src="{{url_for('static', filename='img/1.png')}}" alt="">
+                    </form>
+                </div>
+                <div class="bottominfo">
+                    <h1>fsfsdf</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+</div>
+
+
+    
+{% endblock %}

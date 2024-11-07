@@ -1,0 +1,52 @@
+{% extends 'home.html' %}
+<head>
+    
+    {% block title %}{% endblock %}
+</head>
+{% block content %}
+<div class="item">
+    <div class="itembg">
+        <div style="margin: 0 400px;">
+            <div class="itemimg">
+                <button>-</button>
+                <img src="{{url_for('static', filename='img/2.jpg')}}" alt="" style="width: 400px;">
+                <button>+</button>
+            </div>
+        </div>
+        <div >
+            <h1 style="text-align: center;">назва</h1>
+            <div class="itemtext" >
+                <h2>sfsdfsdfsfsfsmdf;smfsk;dfmsdkfmsklfmsklgmslkgmslkmsdklfmsldkfmsldkfmslkfmslkdfmsldfmslkfmslkmfslkmslkfmslkfmsdlkmfsdlkfmsdlkfmsdlkfm</h2>
+            </div>
+        </div>
+        <div>
+            <div class="itembutton">
+                <button class="buttonregistr" onclick="reviews()">Відгуки</button>
+                <button class="buttonregistr" onclick="question()">Запитання</button>
+                <button class="buttonregistr" onclick="info()">Про продавця</button>
+            </div>
+            <div style="margin: 10px 200px;">
+                <div id="visible1">
+                    <div class="reviews">
+                        <h2>dasdasd</h2>
+                    </div>
+                </div>
+                
+                <div id="visible2">
+                    <div class="question">
+                        <h2>dgjhjghfj</h2>
+                    </div>
+                </div>
+                
+                <div id="visible3">
+                    <div class="info">
+                        <h2>wetrhrthrt</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script rel="stylesheet" src="{{url_for('static', filename='js/item.js' )}}"></Script>
+{% endblock %}

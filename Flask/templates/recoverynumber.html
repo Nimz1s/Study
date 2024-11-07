@@ -1,0 +1,32 @@
+{% extends 'home.html' %}
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/inputmask.min.js"></script>
+    <script rel="stylesheet" src="{{url_for('static', filename='js/main.js' )}}"></Script>
+    {% block title %}recovery{% endblock %}
+</head>
+
+{% block content %}
+<div class="registr">
+    <div>
+        <h1 class="textregistr" style="margin-bottom: 80px; padding-top: 20px; text-align: center; font-size: 40px;">Відновлення пароля</h1>
+            <div class="where">
+                <h2 class="textregistr">Номер телефону</h2>
+                <input type="tel" id="phone" name="phone" class="inputregistr" lder="+38 (XXX) XXX-XX-XX">
+            </div>
+
+        <div class="where" style="margin-top: 50px; font-size: 35px;">
+            <button class="buttonregistr">Продовжити</button>
+        </div>
+        <div class="where" >
+            <div>
+                <form action="/login">
+                    <button class="buttonregistr" style="margin-top: 175px;">Згадали пароль?</button>
+                </form>
+            </div>      
+        </div> 
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}

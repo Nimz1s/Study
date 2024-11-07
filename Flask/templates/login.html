@@ -1,0 +1,40 @@
+{% extends 'home.html' %}
+
+{% block title %} registration {% endblock %}
+
+{% block content %}
+
+<div class="registr">
+    <div>
+        <h1 class="textregistr" style="margin-bottom: 30px; padding-top: 20px; text-align: center; font-size: 40px;">Увійти</h1>
+            <div class="where">
+                <h2 class="textregistr">Електрона адреса</h2>
+                <input type="email" class="inputregistr" style="margin-bottom: 40px;">
+            </div>
+            <div class="where">
+                <h2 class="textregistr">Пароль</h2>
+                <input type="password" class="inputregistr">
+            </div>
+        <div class="where" style="margin-top: 60px; font-size: 35px;">
+            
+            <button class="buttonregistr">Увійти</button>
+        </div>
+        <div class="where" >
+            <div>
+                <div>
+                    <form action="/recovery">
+                        <button class="buttonregistr" style="margin: 60px 0 20px;">Не пам'ятаю пароль</button>
+                    </form>
+                </div>
+                <div>
+                    <form action="/registration">
+                        <button class="buttonregistr" style="margin-left: 22%;">Реєстрація</button>
+                    </form>
+                </div>
+            </div>      
+        </div>  
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
