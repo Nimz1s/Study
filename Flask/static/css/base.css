@@ -1,7 +1,6 @@
 /*header*/
 #header{
-    padding: 10px 15px 40px;
-    background-color: blue;
+    padding: 0px 15px 40px;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -20,14 +19,13 @@
 #li{
     
     margin-left: 20px;
-    background-color: blueviolet;
     border-radius: 5px;
 
 }
 
 .navbar{
     display: flex;
-    background-color: brown;
+    background-color: #101010;
     padding: 5px;
 }
 
@@ -101,12 +99,19 @@
 main{
     /* height: auto;  */
     min-height: 1000px;
-    background-color: #252525;
+    background-color: #0a0d1b;
 }
 #bottompage{
     padding-top: 100px;
+    padding-bottom: 300px;
 }
-
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFAF0; /* Колір для всіх заголовків */
+}
+p{
+    margin-bottom: 0;
+    color: black;
+}
 /*mainend*/
 
 
@@ -116,7 +121,7 @@ main{
 /*footer*/
 footer{
     bottom: 0px;
-    background-color: black;
+    background-color: #2C2F48;
     width: 100%;
     height: 200px;
 }
@@ -124,7 +129,10 @@ footer{
     text-align: center;
 }
 footer{
-    margin-top: 300px;
+    margin-top: 0;
+}
+.footerinfo{
+    color: #B8B4E9;
 }
 /*footerend*/
 
@@ -136,14 +144,14 @@ footer{
 /*likestart*/
 
 .bgofpage{
-    background-color: gray;
+    background-color: #121212;
     border-radius: 20px;
     max-width: 1400px;
     margin: 3% auto;
     height: auto;
 }
 .list{
-    background-color: red;
+    background-color: #201f1f;
     border-radius: 20px;
     width: 92%;
     margin-left: 4%;
@@ -156,7 +164,7 @@ footer{
     height: 0px;
     margin-left: 4%;
     border-radius: 20px;
-    background-color: lightblue;
+    background-color: #201f1f;
     transition: all 0.3s; /* Додаємо плавний перехід */
 }
 
@@ -222,11 +230,12 @@ footer{
     width: 600px;
     height: 550px;
     margin: 3% auto;
-    background-color: #888;
+    background-color: #121212;
     border-radius: 20px;
 }
 .textregistr{
    font-size: 20px; 
+   color: #FFFAF0;
 }
 .inputregistr{
     background-color: #bebebe;
@@ -234,8 +243,11 @@ footer{
     margin: 6px 10%;
 }
 .buttonregistr{
-    background-color: brown;
+    background-color: #fad901;
     border-radius: 15px;
+}
+.buttonregistr:hover{
+    background-color: #ad9602;
 }
 .where{
     display: flex;
@@ -257,7 +269,7 @@ footer{
     height: 1000px;
     max-width: 1200px;
     margin: 10px auto;
-    background-color: #888;
+    background-color: #121212;
     border-radius: 20px;
 
 }
@@ -268,9 +280,8 @@ footer{
 }
 
 
-/*basketstart*/
+/*basket start*/
 .basketbg{
-    background-color: #888;
     max-width: 1400px;
     height: auto;
     margin: 15px auto;
@@ -278,7 +289,7 @@ footer{
     border-radius: 20px;
 }
 .basketitem{
-    background-color: white;
+    background-color: #121212;
     width: 800px;
     height: auto;
     margin: 15px auto 15px;
@@ -286,7 +297,7 @@ footer{
     border-radius: 20px;
 }
 .basketbuy{
-    background-color: white;
+    background-color: #201f1f;
     width: 500px;
     height: 350px;
     margin: 15px auto ;
@@ -331,13 +342,12 @@ footer{
     margin: 10px auto;
 }
 .itembg{
-    background-color: #888;
+    background-color: #121212;
     height: 1000px;
     border-radius: 20px;
 }
 .itemimg{
     width: 800px;
-    padding-left: 80px;
 }
 .itemtext{
     overflow-wrap: break-word;

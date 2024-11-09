@@ -18,16 +18,16 @@
                 <div class="buttons">
                     <ul id="ul">
                         <li id="li">
-                            <a href="/basket"><img class="alogo"src="{{url_for('static', filename='img/1.png')}}" alt="my ico 1"></a>
+                            <a href="/basket"><img src="{{url_for('static', filename='img/basket.png')}}" style="width: 40px; height: 40px; margin-top: 5px;"></a>
                         </li>
                         <li id="li">
-                            <a href="/like"><img class="alogo"src="{{url_for('static', filename='img/1.png')}}" alt="my ico 1"></a>
+                            <a href="/like"><img src="{{url_for('static', filename='img/like.png')}}" style="width: 50px; height: 50px;"></a>
                         </li>
                         <li id="li">
-                            <a href="/accaunt"><img class="alogo"src="{{url_for('static', filename='img/1.png')}}" alt="my ico 1"></a>
+                            <a href="/accaunt"><img src="{{url_for('static', filename='img/accaunt.png')}}" style="width: 50px; height: 50px;"></a>
                         </li>
                         <li id="li">
-                            <a href="/login"><img class="alogo"src="{{url_for('static', filename='img/1.png')}}" alt="my ico 1"></a>
+                            <a href="/login"><button class="buttonregistr" style="width: 70px; height: 50px;">Login</button></a>
                         </li>
                     </ul>
                 </div>
@@ -70,15 +70,17 @@
             <section>
                 <div>
                     <div style="background-color: black;">
-                        <div style="margin-left: 280px; background-color: brown; padding: 0 20px;" >
+                        <div style="margin-left: 280px; background-color: #121212; padding: 0 20px;" >
                             <div style="display: flex; justify-content: space-between; flex-wrap: wrap; ">
 
                                 
-                                {% for product in products %}
-                                <div style="background-color: beige; width: 346px; height: 346px; border-radius: 20px; margin-bottom: 30px;">
-                                    <img src="{{url_for('static', filename=product.main_img)}}" alt="Слайд 2" style="width: 346px; height: 266px; border-radius: 20px 20px 0 0;" >
-                                    <h1 style="background-color: antiquewhite;">{{ product.name_product }}</h1>
-                                </div>
+                                {% for product in productS %}
+                                    <div style="background-color: #201f1f; width: 346px; height: 346px; border-radius: 20px; margin-bottom: 30px;">
+                                        
+                                        <a href="/item"> <img src="{{url_for('static', filename=product.main_img)}}" alt="Слайд 2" style="width: 346px; height: 266px; border-radius: 20px 20px 0 0;" ></a>
+                                        <h1 style=>{{ product.name_product }}</h1>
+                                        
+                                    </div>
                                 {% endfor %}
                             </div>
 

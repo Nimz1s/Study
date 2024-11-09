@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, session
 from models import init_db
 from routes.home import home_bp
+from routes.item import item_bp
 
 
 app = Flask(__name__)
@@ -9,6 +10,7 @@ init_db()
 
 
 app.register_blueprint(home_bp)
+app.register_blueprint(item_bp)
 
 
 
@@ -44,11 +46,6 @@ def registration():
 @app.route('/accaunt')
 def accaunt():
     return render_template('accaunt.html')
-
-
-@app.route('/item')
-def item():
-    return render_template('item.html')
 
 
 if __name__ == "__main__":
