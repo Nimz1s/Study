@@ -2,29 +2,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const items = document.querySelectorAll('.item'); // Отримуємо всі елементи товарів
     const grandTotalElement = document.getElementById('grandTotal'); // Елемент для відображення загальної суми
 
+    function updateGrandTotal() {
+        let grandTotal = 0; // Ініціалізуємо загальну суму
+        items.forEach(item => {
+            const itemTotalPrice = parseFloat(item.querySelector('.totalPrice').textContent); // Отримуємо ціну кожного товару
+            grandTotal += itemTotalPrice; // Додаємо ціну до загальної суми
+        });
+        grandTotalElement.textContent = grandTotal.toFixed(2); // Оновлюємо текст елемента загальної суми
+    }
+
     items.forEach(item => {
         const unitPrice = parseFloat(item.querySelector('.totalPrice').textContent); // Отримуємо базову ціну з відповідного товару
         const counterValueInput = item.querySelector('.counter-value'); // Поле вводу для кількості
         const totalPriceElement = item.querySelector('.totalPrice'); // Елемент для відображення загальної ціни
         const decrementButton = item.querySelector('.decrement'); // Кнопка зменшення
         const incrementButton = item.querySelector('.increment'); // Кнопка збільшення
+        const itemId = item.dataset.itemId; // Отримуємо ID товару з атрибута data-item-id
 
-        // Функція для оновлення загальної ціни та загальної суми
+        // Функція для оновлення загальної ціни та відправки POST запиту на сервер
         function updateTotalPrice() {
             const count = parseInt(counterValueInput.value, 10); // Отримуємо значення кількості
             const totalPrice = unitPrice * count; // Обчислюємо загальну ціну
             totalPriceElement.textContent = totalPrice.toFixed(2); // Оновлюємо текст елемента
             updateGrandTotal(); // Оновлюємо загальну суму
-        }
 
-        // Функція для оновлення загальної суми
-        function updateGrandTotal() {
-            let grandTotal = 0; // Ініціалізуємо загальну суму
-            items.forEach(item => {
-                const itemTotalPrice = parseFloat(item.querySelector('.totalPrice').textContent); // Отримуємо ціну кожного товару
-                grandTotal += itemTotalPrice; // Додаємо ціну до загальної суми
-            });
-            grandTotalElement.textContent = grandTotal.toFixed(2); // Оновлюємо текст елемента загальної суми
+            // Відправка нової кількості на сервер
+            fetch(`/update_quantity/${itemId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ quantity: count })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    console.log(data.message);
+                } else {
+                    console.error(data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
         }
 
         // Обробник події для кнопки зменшення
@@ -49,6 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTotalPrice();
     });
 });
+
+
 
 
 function toggleSelect(selected) {

@@ -10,34 +10,33 @@
 <div class="registr">
     <div>
         <h1 class="textregistr" style="margin-bottom: 30px; padding-top: 20px; text-align: center; font-size: 40px;">Реєстрація</h1>
-            <div class="where">
-                <h2 class="textregistr">ПІБ(Призвіще Ім'я По батькові)</h2>
-                <input type="text" class="inputregistr">
-            </div>
-            <div class="where">
-                <h2 class="textregistr">Номер телефону</h2>
-                <input type="tel" id="phone" name="phone" class="inputregistr" lder="+38 (XXX) XXX-XX-XX">
-            </div>
-            <div class="where">
-                <h2 class="textregistr">Електрона адреса</h2>
-                <input type="email" class="inputregistr">
-            </div>
-            <div class="where">
-                <h2 class="textregistr">Пароль</h2>
-                <input type="password" class="inputregistr">
+            <div>
+                <form method="POST" action="{{ url_for('registration_bp.registration') }}">
+                    <h2 class="textregistr" >ПІБ(Призвіще Ім'я По батькові)</h2>
+                    <input type="text" name="userinfo" class="inputregistr" required>
+
+                    <h2 class="textregistr" >Номер телефону</h2>
+                    <input type="tel" id="phone" name="phone" class="inputregistr" lder="+38 (XXX) XXX-XX-XX" required>
+
+                    <h2 class="textregistr">Електрона адреса</h2>
+                    <input type="email" name="email" class="inputregistr" required>
+
+                    <h2 class="textregistr">Пароль</h2>
+                    <input type="password" name="password" class="inputregistr" required>
+
+                    <button type="submit" class="buttonregistr" style="width: 160px; height: 40px; margin: 30px 220px 0;">Продовжити</button>
+                </form>
             </div>
         <div class="where" style="margin-top: 30px; font-size: 35px;">
-            <button class="buttonregistr">Продовжити</button>
+            
         </div>
         <div class="where" >
             <div>
                 <form action="/login">
-                    <button class="buttonregistr" style="margin: 30px 0 10px;">Є акаунт?"</button>
+                    <button class="buttonregistr" style="margin: 20px 0 10px;">Є акаунт?"</button>
                 </form>
             </div>
         </div>  
     </div>
 </div>
-{% endblock %}
-{% block footer %}
 {% endblock %}

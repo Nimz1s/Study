@@ -1,81 +1,32 @@
 {% extends 'home.html' %}
 <head>
-    <script rel="stylesheet" src="{{url_for('static', filename='js/main.js' )}}"></Script>
+    <script rel="stylesheet" src="{{url_for('static', filename='js/main.js' )}}"></script>
     {% block title %}like{% endblock %}
 </head>
-
 
 {% block content %}
 <div class="bgofpage">
     <h1 class="centertext">Списки вподобань</h1>
     <div class="list">
-        <h1 style="flex: 1">Список</h1>
-        <div>
-            <button style="background: none; border: none;" onclick="changeSize()">+</button>
-            
-        </div>
-        
-        <div>
-            <button class="visible" id="openModal">-</button>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" id="closeModal">&times;</span>
-                    <h2>Видалити список?</h2>
-                    <p>Якщо видалити список весь його вміст буде знищено</p>
-                    <button id="deleteList">Видалити</button>
+        <h1 style="flex: 1; text-align: center;">Список</h1> 
+        <div class="list">
+            {% for item in items %}
+            <div class="likeitem">
+                <a href="{{url_for('home.item', item_id=item.id)}}">
+                    <img src="{{ url_for('static', filename=item.main_img) }}" alt="{{ item.name_product }}" class="likeimg">
+                </a>
+                <div class="bottominfo">
+                    <h1>{{ item.name_product }}</h1>
+                    <h3>{{ item.price }} грн</h3>
+                    <form method="POST" action="{{url_for('like_bp.remove_from_like', item_id=item.id)}}">
+                        <button type="submit" class="buttonregistr">Видалити предмет</button>
+                    </form>
                 </div>
             </div>
-        </div>        
+            {% else %}
+                <p>Немає товарів у вподобаннях.</p>
+            {% endfor %}
+        </div>      
     </div>
-    <div id="myBlock">
-        <div style="display: flex; justify-content: center;">
-            <div class="likeitem">
-                <div>
-                    <form action="">
-                        <img  class="likeimg" src="{{url_for('static', filename='img/2.jpg')}}" alt="">
-                    </form>
-                </div>
-                <div class="bottominfo">
-                    <h1>fsfsdf</h1>
-                </div>
-            </div>
-            <div class="likeitem">
-                <div>
-                    <form action="">
-                        <img  class="likeimg" src="{{url_for('static', filename='img/1.png')}}" alt="">
-                    </form>
-                </div>
-                <div class="bottominfo">
-                    <h1>fsfsdf</h1>
-                </div>
-            </div>
-            <div class="likeitem">
-                <div>
-                    <form action="">
-                        <img  class="likeimg" src="{{url_for('static', filename='img/1.png')}}" alt="">
-                    </form>
-                </div>
-                <div class="bottominfo">
-                    <h1>fsfsdf</h1>
-                </div>
-            </div>
-            <div class="likeitem">
-                <div>
-                    <form action="">
-                        <img  class="likeimg" src="{{url_for('static', filename='img/1.png')}}" alt="">
-                    </form>
-                </div>
-                <div class="bottominfo">
-                    <h1>fsfsdf</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    
 </div>
-
-
-    
 {% endblock %}

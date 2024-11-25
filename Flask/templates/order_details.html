@@ -1,0 +1,68 @@
+{% extends 'home.html' %}
+
+<head>
+    {% block title %}oreder details{% endblock %}
+</head>
+
+
+{% block content %}
+
+<div class="item">
+    <div class="itembg">
+        <h1 style="text-align: center;">Деталі замовлення №{{order.id}}</h1>
+    
+        <div style="margin: 20px 40px;">
+            <h3>Призвіще Ім'я: {{order.lastname}} {{order.firstname}}</h3>
+            <h3>Емеіл: {{order.email}}</h3>
+            <h3>Номер телефону: {{order.phone}}</h3>
+            <h3>Дата оформлення замовлення: {{order.data}}</h3>        
+        </div>
+
+        <div class="order-items">
+            <h2 style="text-align: center;">Товари в замовленні</h2>
+            <table style="margin: 20px auto; width: 100%;">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th><h3>Назва товарів</h3></th>
+                        <th><h3>Кількість товару</h3></th>
+                        <th><h3>Ціна за одиницю товару</h3></th>
+                        <th><h3>Загальна сума для товару</h3></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr style="text-align: center;">
+                        <td><a href="{{url_for('home.item', item_id=item.id)}}"><h3>{{ item.name_product }}</h3></a></td>
+                        <td><h3>{{ item['quantity'] }}</h3></td>
+                        <td><h3>{{ item['price'] }} грн</h3></td>
+                        <td><h3>{{ item['price'] * item['quantity'] }} грн</h3></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div style="margin: 50px auto; max-width: 1000px;">
+            <h1 style="text-align: center;">Дії із замовленнями</h1>
+            <div>
+                <h2 style="text-align: center; margin: 20px 0 40px;">Стан замовлення</h2>
+                <form action="{{ url_for('admin_bp.update_order_status', order_id=order['id']) }}" method="post" style="display: flex; justify-content: space-evenly;">
+                    <select name="status" class="status-select" style="border-radius: 20px;">
+                        <option value="Обробляємо замовлення" {% if order['status'] == 'Обробляємо замовлення' %}selected{% endif %}>Обробляємо замовлення</option>
+                        <option value="Замовлення вже в дорозі" {% if order['status'] == 'Замовлення уже в дорозі' %}selected{% endif %}>Замовлення уже в дорозі</option>
+                        <option value="Замовлення було доставлено успішно" {% if order['status'] == 'Замовлення було доставлено успішно' %}selected{% endif %}>Замовлення було доставлено успішно</option>
+                        <option value="Замовлення скасоване відправником" {% if order['status'] == 'Замовлення скасоване відправником' %}selected{% endif %}>Замовлення скасоване відправником</option>
+                    </select>
+                    <button type="submit" class="buttonregistr"><h3 style="font-size: 30px; width: 300px; padding: 5px;">Оновити статус</h3></button>
+                </form>
+            </div>
+        </div>
+        <div class="order-delete">
+            <h2 style="text-align: center; margin: 20px 0 40px;">Видалити замовлення</h2>
+            <form action="{{ url_for('admin_bp.delete_order', order_id=order.id) }}" method="post" style="display: flex; justify-content: center;">
+                <button type="submit" class="buttonregistr" style="background-color: darkred;"><h3 style="font-size: 30px; padding: 5px 20px;">Видалити</h3></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

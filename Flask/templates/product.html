@@ -1,0 +1,32 @@
+{% extends 'home.html' %}
+
+<head>
+    {% block title %}{% endblock %}
+</head>
+
+{% block content %}
+    <div class="item">
+        <div class="itembg">
+            <h1 style="text-align: center;">Редагування продукту №{{product.id}}</h1>
+            <div style="margin: 0 auto; max-width: 800px;">
+                <form action="{{ url_for('admin_bp.update_product', product_id=product.id) }}" method="POST" enctype="multipart/form-data">
+                    <label for="name_product"><h3>Назва продукту:</h3></label><br>
+                    <input type="text" name="name_product" value="{{ product.name_product }}"><br>
+                
+                    <label for="info_for_product"><h3>Опис продукту:</h3></label><br>
+                    <textarea name="info_for_product" id="info_for_product" style="width: 600px;">{{ product.info_for_product }}</textarea><br>
+                
+                    <label for="price"><h3>Ціна:</h3></label><br>
+                    <input type="text" name="price" value="{{ product.price }}"><br>
+                
+                    <label for="file"><h3>Головне фото:</h3></label><br>
+                    <input type="file" name="file" id="file"><br><br>
+                
+                    <button class="buttonregistr" type="submit">Зберегти зміни</button>
+                </form>
+                              
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}

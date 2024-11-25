@@ -11,23 +11,24 @@
             <button class="buttonregistr" style="margin: 10px 10px 10px; font-size: 8px;">Редагувати <br>профіль</button>
         </div>
         <div>
+            <h1 style="text-align: center;">Профіль</h1>
             <img src="{{url_for('static', filename='img/1.png')}}" alt="Photo" style="border-radius: 50px; width: 20%; margin: 3% 40%;">
         </div>
-        <div>
-            <h1 class="acaunttext">ПІБ(Призвіще Ім'я По-батькові)</h1>
-            <h2>A A A</h2>
-            <h1 class="acaunttext">Емеіл</h1>
-            <h2> asdsds@gasf.ofaf</h2>
-            <h1 class="acaunttext">Телефон</h1>
-            <h2>16545646</h2>
-            <h1 class="acaunttext">Особисті дані</h1>
-            <h2></h2>
+        <div class="acaunttext">
+            <h2>ПІБ(Призвіще Ім'я По-батькові)</h2>
+            <h3 style="margin-bottom: 30px;">{{user['userinfo']}}</h3>
+            <h2>email</h2>
+            <h3 style="margin-bottom: 30px;">{{ user['email'] }}</h3>
+            <h2>Телефон</h2>
+            <h3 style="margin-bottom: 30px;">{{user['phonenumber']}}</h3>    
+            <h2>Особисті дані</h2>
+            <h3></h3>
         </div>
         <br>
         <div class="where" >
             <div>
                 <div>
-                    <form action="">
+                    <form action="/basket">
                         <button class="buttonregistr" style="margin: 60px 13px 20px;">Кошик</button>
                     </form>
                 </div>
@@ -39,7 +40,7 @@
             </div>      
         </div>
         <div class="where">
-            <form action="">
+            <form action="{{ url_for('accaunt_bp.logout') }}">
                 <button class="buttonregistr" style="margin-top: 110px; font-size: 24px;">Вийти з акаунта</button>
             </form>
         </div>

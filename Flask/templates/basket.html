@@ -1,156 +1,151 @@
+
 {% extends 'home.html' %}
 <head>
-
     {% block title %}basket{% endblock %}
 </head>
 {% block content %}
-<div class="basketbg">
-    <div class="basketitem">
-        <h1 style="text-align: center; margin-bottom: 40px;">Замовлення</h1>
-        
+    <div class="basketbg">
+        <div class="basketitem">
+            <h1 style="text-align: center; margin-bottom: 40px;">Замовлення</h1>
+            
+        {% if basket_items %}
+            {% for item in basket_items%}
+                <div class="item" style="display: flex; border: 2px solid #000; padding: 0; margin: 0 0 20px; background-color: #201f1f;" data-item-id="{{ item.id }}">
+                    <div class="basketimg">
+                        <a href=""><img src="{{ url_for('static', filename=item.main_img) }}" alt="Photo" class="basketimg"></a>
+                    </div>
+                    <div>
+                        <a href="/"><h4 class="textitem">{{ item.name_product }}</h4></a>
+                    </div>
+                    <div class="counter">
+                        <h2>Кількість:</h2>
+                        <div style="display: flex; justify-content: center;">
+                            <button class="decrement counterbutton">-</button>
+                            <input type="number" class="counter-value" style="width: 40px; margin: 0 10px;" value="{{ item.quantity }}">
+                            <button class="increment counterbutton">+</button>
+                        </div>
+                        <h2>Ціна:</h2>
+                        <div style="display: flex; justify-content: flex-end; font-size: 35px;">
+                            <span class="totalPrice" style="margin: 0 10px; color: #FFFAF0;">{{ item.price }}</span>
+                            <h1>грн</h1>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 40px; display: flex; justify-content: flex-end;">
+                    <form action="{{ url_for('basket_bp.remove_from_basket', item_id=item.id) }}" method="post">
+                        <button type="submit" class="buttonregistr">Видалити товар</button>
+                    </form>
+                </div>
+            {% endfor %}
+        <form action="{{ url_for('basket_bp.checkout') }}" method="post">
+            <div style="padding-bottom: 10px; margin-bottom: 10px;">
+                <h1 style="text-align: center;">Доставка</h1>
+                <label style="margin: 10px 50px 0px; font-size: 40px; display: flex;">
+                    <input type="radio" name="main_choice" value="our_shop" onclick="toggleSelect('shopSelect')">
+                    <h1>У наш магазин</h1>
+                </label>
+                <div id="shopSelect" class="selectField">
+                    <h2 style="text-align: center;">Виберіть наше відділення:</h2>
+                    <div style="display: grid; justify-content: center; padding-bottom: 30px;">
+                        <select id="shop" style="width: 500px; font-size: 20px;" name="sub_choice">
+                            <option value="Магазин 1">Магазин 1</option>
+                            <option value="Магазин 2">Магазин 2</option>
+                        </select>
+                    </div>
+                </div>
 
-        <div class="item" style="display: flex; border: 2px solid #000; padding: 0; margin: 0 0 20px; background-color: #201f1f;" >
-            <div class="basketimg">
-                <a href=""><img src="{{url_for('static', filename='img/2.jpg')}}" alt="Photo" class="basketimg"></a>
+                <label style="margin: 10px 50px 10px; font-size: 40px; display: flex;">
+                    <input type="radio" name="main_choice" value="nova_poshta" onclick="toggleSelect('novaPoshtaSelect')">
+                    <h1>У відділення нової пошти</h1>
+                </label>
+                <div id="novaPoshtaSelect" class="selectField">
+                    <h2 style="text-align: center;">Виберіть відділення нової пошти:</h2>
+                    <div style="display: grid; justify-content: center; padding-bottom: 30px;">
+                        <select id="novaPoshta" style="width: 500px; font-size: 20px;" name="sub1_choice">
+                            <option value="Нова Почта№ 1">Нова Почта№ 1</option>
+                            <option value="Нова Почта№ 2">Нова Почта№ 2</option>
+                            <option value="Нова Почта№ 3">Нова Почта№ 3</option>
+                            <option value="Нова Почта№ 4">Нова Почта№ 4</option>
+                            <option value="Нова Почта№ 5">Нова Почта№ 5</option>
+                        </select>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Контактна інформація -->
             <div>
-                <a href="/"><h4 class="textitem">asdfasdfasdfasfsadfsadfsadfasfasfsaf</h4></a>
-            </div>
-            <div class="counter">
-                <h2>Кількість:</h2>
-                <div style="display: flex; justify-content: center;">
-                    <button class="decrement counterbutton">-</button>
-                    <input type="number" class="counter-value" style="width: 40px; margin: 0 10px;" value="1">
-                    <button class="increment counterbutton">+</button>
-                </div>
-                <h2>Ціна:</h2>
-                <div style="display: flex; justify-content: center; font-size: 35px;">
-                    <span class="totalPrice" style="margin: 0 10px; color: #FFFAF0;">200</span>
-                    <h1>грн</h1>
-                </div>
-            </div>
-        </div>
-        
-        <div class="item" style="display: flex; border: 2px solid #000; padding: 0; margin: 0 0 20px; background-color: #201f1f;" >
-            <div class="basketimg">
-                <a href=""><img src="{{url_for('static', filename='img/3.jpg')}}" alt="Photo" class="basketimg"></a>
-            </div>
-            <div>
-                <a href="/"><h4 class="textitem">Тaasdfasfasdfsadfsafsadfasdfasf</h4></a>
-            </div>
-            <div class="counter">
-                <h2>Кількість:</h2>
-                <div style="display: flex; justify-content: center;">
-                    <button class="decrement counterbutton">-</button>
-                    <input type="number" class="counter-value" style="width: 40px; margin: 0 10px;" value="1">
-                    <button class="increment counterbutton">+</button>
-                </div>
-                <h2>Ціна:</h2>
-                <div style="display: flex; justify-content: center; font-size: 35px;">
-                    <span class="totalPrice" style="margin: 0 10px; color: #FFFAF0;">397.99</span>
-                    <h1>грн<h1>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div style="padding-bottom: 10px; margin-bottom: 10px;">
-            <h1 style="text-align: center;">Доставка</h1>
-            <label style="margin: 10px 50px 0px; font-size: 40px; display: flex;">
-                <input type="radio" name="option" value="shop" onclick="toggleSelect('shopSelect')" ><h1 >У наш магазин</h1>  <br>
-            </label>
-            <div id="shopSelect" class="selectField">
-                <h2 style="text-align: center;">Виберіть наше відділення:</h2>
-                <div style="display: grid; justify-content: center; padding-bottom: 30px;">
-                    <select id="shop" style="width: 500px; font-size: 20px;">
-                        <option value="">Оберіть товар</option>
-                        <option value="product1">Товар 1</option>
-                        <option value="product2">Товар 2</option>
-                    </select>
-                </div>
-            </div>
-
-            <label style="margin: 10px 50px 10px; font-size: 40px; display: flex;">
-                <input type="radio" name="option" value="nova_poshta" onclick="toggleSelect('novaPoshtaSelect')"><h1> У відділення нової пошти </h1><br>
-            </label>
-            <div id="novaPoshtaSelect" class="selectField">
-                <h2 style="text-align: center;">Виберіть відділення нової почти:</h2>
-                <div style="display: grid; justify-content: center; padding-bottom: 30px;">
-                    <select id="novaPoshta" style="width: 500px; font-size: 20px;">
-                        <option value="">Оберіть відділення</option>
-                        <option value="branch1">Відділення 1</option>
-                        <option value="branch2">Відділення 2</option>
-                    </select>
-                </div>
-            </div>
-
-            <label style="margin: 10px 50px 10px; font-size: 40px; display: flex;">
-                <input type="radio" name="option" value="self_pickup" onclick="toggleSelect('selfPickupSelect')"><h1> Курєром </h1><br>
-            </label>
-            <div id="selfPickupSelect" class="selectField">
-                <h2 style="text-align: center;">Введіть вашу адресу</h2>
-                <div style="display: grid; justify-content: center;">
-                    <label for="selfPickup"></label>
+                <h1 style="text-align: center;">Контактна інформація</h1>
+                <div style="display: flex; justify-content: space-around;">
+                    <div>
+                        <h6>Прізвище</h6>
+                        <input type="text" id="lastname" name="lastname" style="width: 250px; height: 35px; border-radius: 7px;" required>
+                        <h6>Ім'я</h6>
+                        <input type="text" id="firstname" name="firstname" style="width: 250px; height: 35px; border-radius: 7px;" required>
+                    </div>
                     
-                    <div style="display: flex;">
-                        <h5>Область: </h5><input type="text" name="" id="" style="margin-left: 89px;">
-                    </div>
-                    <div style="display: flex;">
-                        <h5>Місто: </h5><input type="text" name="" id="" style="margin-left: 113px;">
-                    </div>
-                    <div style="display: flex;">
-                        <h5>Адреса: </h5><input type="text" name="" id="" style="margin-left: 98px;">
-                    </div>
-                    <div style="display: flex;">
-                        <h5>Номер будинку: </h5><input type="number" name="" id="" style="margin-left: 20px;">
+                    <div>
+                        <h6>Електронна адреса</h6>
+                        <input type="email" id="email" name="email" style="width: 250px; height: 35px; border-radius: 7px;" required>
+                        <h6>Номер телефону</h6>
+                        <input type="tel" id="phone" name="phone" style="width: 250px; height: 35px; border-radius: 7px;" required>
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-        <div>
-            <h1 style="text-align: center;">Контактна інформація</h1>
-            <div style="display: flex; justify-content: space-around;">
-                <div>
-                    <h6>Призвіще</h6>
-                    <input type="text" style="width: 250px; height: 35px; border-radius: 7px;">
-                    <h6>Ім'я</h6>
-                    <input type="text" style="width: 250px; height: 35px; border-radius: 7px;">
-                </div>
-                
-                <div>
-                    <h6>Електрона адреса</h6>
-                    <input type="email" style="width: 250px; height: 35px; border-radius: 7px;">
-                    <h6>Номер телефону</h6>
-                    <input type="text" id="phone" style="width: 250px; height: 35px; border-radius: 7px;">
-                </div>
+        <!-- Кнопка для підтвердження замовлення -->
+        <div class="basketbuy">
+            <h2>До оплати</h2>
+            <div style="display: flex; justify-content: center; font-size: 35px;">
+                <span id="grandTotal" style="margin: 0 10px; color: #FFFAF0;"></span>
+                <h1>грн</h1>
             </div>
+            
+                <div style="display: flex; justify-content: center; margin-top: 60px;">
+                    <button id="submit" style="font-size: 35px;" class="buttonregistr">Підтвердити замовлення</button>
+                </div>
+        </form>
         </div>
+        {% else %}
+            <p style="text-align: center; color: #fff;">Ваш кошик порожній.</p>
+        {% endif %}
     </div>
-    
-    
-    
 
-    <div class="basketbuy">
-        <h2>До оплати</h2>
-        <div style="display: flex; justify-content: center; font-size: 35px;">
-        <span id="grandTotal" style="margin: 0 10px; color: #FFFAF0;">0.00</span>
-        <h1>грн</h1>
-        </div>
-        <div>
-            <h2>Промокод</h2>
-            <input type="text" style="width: 250px; height: 35px; border-radius: 7px;">
-        </div>
+    <script rel="stylesheet" src="{{url_for('static', filename='js/basket.js' )}}"></Script>
+    <script>
+        document.getElementById('submitOrder').addEventListener('click', function () {
+            // Збір даних із форми
+            const deliveryOption = document.querySelector('input[name="delivery_option"]:checked').value;
+            const contactInfo = {
+                lastname: document.getElementById('lastname').value,
+                firstname: document.getElementById('firstname').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value
+            };
 
-        <div style="display: flex; justify-content: center; margin-top: 60px;">
-            <button style="font-size: 35px;" class="buttonregistr">Підтвердити замовлення</button>
-        </div>
-        
-        
-    </div>
-</div>
-<script rel="stylesheet" src="{{url_for('static', filename='js/basket.js' )}}"></Script>
+            // Дані для відправки
+            const orderData = {
+                deliveryOption: deliveryOption,
+                contactInfo: contactInfo,
+                total: document.getElementById('grandTotal').textContent
+            };
+
+            // Відправка даних на сервер через fetch API
+            fetch('/submit_order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(orderData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Замовлення успішно підтверджено!');
+                    window.location.href = '/thank_you';
+                } else {
+                    alert('Помилка при підтвердженні замовлення!');
+                }
+            })
+            .catch(error => console.error('Помилка:', error));
+        });
+    </script>
 {% endblock %}

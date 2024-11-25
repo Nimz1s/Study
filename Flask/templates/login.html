@@ -4,26 +4,30 @@
 
 {% block content %}
 
+
 <div class="registr">
     <div>
         <h1 class="textregistr" style="margin-bottom: 30px; padding-top: 20px; text-align: center; font-size: 40px;">Увійти</h1>
-            <div class="where">
-                <h2 class="textregistr">Електронна адреса</h2>
-                <input type="email" class="inputregistr" style="margin-bottom: 40px;">
-            </div>
-            <div class="where">
-                <h2 class="textregistr">Пароль </h2>
-                <input type="password" class="inputregistr">
+            <div>
+                <form method="post" action="{{ url_for('login_bp.login') }}">
+                    <h2 class="textregistr">Електронна адреса</h2>
+                    <input type="email" name="email" class="inputregistr" style="margin-bottom: 40px;" required>
+
+                    <h2 class="textregistr">Пароль </h2>
+                    <input type="password" name="password" class="inputregistr" required>
+
+                    <button method="submit" class="buttonregistr" style="width: 120px; height: 40px; margin: 50px 240px 0;"><p> Увійти </p></button>
+                </form>
             </div>
         <div class="where" style="margin-top: 60px; font-size: 35px;">
             
-            <button class="buttonregistr"><p> Увійти </p></button>
+            
         </div>
         <div class="where" >
             <div>
                 <div>
                     <form action="/recovery">
-                        <button class="buttonregistr" style="margin: 50px 0 20px;">Не пам'ятаю пароль</button>
+                        <button class="buttonregistr" style="margin: 30px 0 20px;">Не пам'ятаю пароль</button>
                     </form>
                 </div>
                 <div>
@@ -35,6 +39,6 @@
         </div>  
     </div>
 </div>
-{% endblock %}
-{% block footer %}
+
+
 {% endblock %}

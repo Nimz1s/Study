@@ -1,0 +1,172 @@
+{%  extends 'home.html' %}
+<head>
+    {% block title %}admin{% endblock %}
+</head>
+{% block content %}
+<div class="item">
+    <div class="itembg">
+        <h1 style="text-align: center; font-size: 60px; margin-bottom: 30px;">Адмін-панель</h1>
+    <div class="adminbg">
+        <div>
+            <h2 style="text-align: center; font-size: 50px;">Замовлення</h2>
+        </div>
+        <div>
+            <table style="width: 90%; margin: 20px auto;">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>ID</th>
+                        <th>Призвіще Ім'я</th>
+                        <th>Email</th>
+                        <th style="width: 150px;">Телефон</th>
+                        <th>Спосіб доставки</th>
+                        <th>Дата</th>
+                        <th>Статус</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in order %}
+                    <tr style="text-align: center;">
+                        <td style="width: 40px; border-width: 5px; border-color: black;">{{order.id}}</td>
+                        <td style=" border-width: 5px; border-color: black;">{{order.lastname}} {{order.firstname}}</td>
+                        <td style=" border-width: 5px; border-color: black;">{{order.email}}</td>
+                        <td style=" border-width: 5px; border-color: black;">{{order.phone}}</td>
+                        <td style=" border-width: 5px; border-color: black;">{{order.sub_choice}}</td>
+                        <td style=" border-width: 5px; border-color: black;">{{order.data}}</td>
+                        <td style=" border-width: 5px; border-color: black;">{{order.status}}</td>
+                        <td style=" border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.order_details', order_id=order.id)}}" method="post"><button class="buttonregistr">Редагувати</button></form></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="adminbg">
+        <div>
+            <h2 style="text-align: center; font-size: 50px;">Відгуки до товарів</h2>
+        </div>
+        <div>
+            <table style="width: 90%; margin: 20px auto;">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>ID</th>
+                        <th style="width: 250px;">Призвіще Ім'я</th>
+                        <th style="width: 250px;">Email</th>
+                        <th style="width: 200px;">Дата</th>
+                        <th style="width: 400px;">Повідомлення</th>
+                        <th style="width: 200px;">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for feedbacks in feedbacks %}
+                    <tr style="text-align: center; border-width: 2px; border-color: black;">
+                        <td style="width: 50px; border-width: 5px; border-color: black;">{{feedbacks.id}}</td>
+                        <td style="border-width: 5px; border-color: black;">{{feedbacks.user_info}}</td>
+                        <td style="border-width: 5px; border-color: black;">{{feedbacks.email}}</td>
+                        <td style="border-width: 5px; border-color: black;">{{feedbacks.data}}</td>
+                        <td style="border-width: 5px; border-color: black;"><p style="width: 400px; overflow-wrap: break-word;"> {{feedbacks.message}} </p></td>
+                        <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.delete_feedback', id=feedbacks['id'])}}" method="post"><button method="submit" class="buttonregistr">Видалити</button></form></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="adminbg">
+        <div>
+            <h2 style="text-align: center; font-size: 50px;">Товари</h2>
+        </div><br>
+        <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+            <button class="buttonregistr" style="font-size: 20px;" onclick="product()">Список товарів</button>
+            <button class="buttonregistr" style="font-size: 20px;" onclick="addproduct()">Додати товар</button>
+        </div>
+        <div style="background-color: #687461; border-radius: 20px; height: auto; width: 1100px; margin: 0 auto;">
+            <div id="visibleproducts">
+                <table style="width: 90%; margin: 20px auto;">
+                    <thead>
+                        <tr style="text-align: center;">
+                            <th>ID</th>
+                            <th>Ім'я продукта</th>
+                            <th>Інформація про продукт</th>
+                            <th>Ціна</th>
+                            <th>Головне фото</th>
+                            <th>Редагування товару</th>
+                            <th>Видалення товару</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for products in products %}
+                        <tr style="text-align: center; border-width: 2px; border-color: black;">
+                            <td style="width: 50px; border-width: 5px; border-color: black;">{{products.id}}</td>
+                            <td style="border-width: 5px; border-color: black;">{{products.name_product}}</td>
+                            <td style="border-width: 5px; border-color: black;"><p style="width: 400px; overflow-wrap: break-word;">{{products.info_for_product}}</p></td>
+                            <td style="border-width: 5px; border-color: black;">{{products.price}}</td>
+                            <td style="border-width: 5px; border-color: black;">{{products.main_img}}</td>
+                            <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.details', product_id=products.id)}}"><button class="buttonregistr">Редагувати</button></form></td>
+                            <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.delete_product', products_id=products.id)}}" method="post"><button method="submit" class="buttonregistr" style="background-color: rgb(238, 13, 13);">Видалити</button></form></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="background-color: #687461; border-radius: 20px; height: auto; width: 1000px; margin: 0 auto;">
+            <div id="visibleaddproducts" style="padding: 40px;">
+                <div>
+                    <form action="{{ url_for('admin_bp.add_product') }}" method="post" enctype="multipart/form-data">
+                        <h2>Назва для товару:</h2>
+                        <input type="text" name="name_product" required><br>
+                        <h2>Повна інформація про товар:</h2>
+                        <textarea id="" name="info_for_product" style="width: 600px;" required></textarea><br>
+                        <h2>Ціна товару:</h2>
+                        <input type="number" name="price" step="0.01" required><br>
+                        <h2>Фотографія:</h2>
+                        <input type="file" name="main_img" required><br>
+                        <button method="submit">Додати</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="adminbg">
+        <div>
+            <h2 style="text-align: center; font-size: 50px;">Зареєстровані клієнти</h2>
+        </div>
+        <div>
+            <table style="width: 90%; margin: 20px auto;">
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>ID</th>
+                        <th style="width: 250px;">Призвіще Ім'я</th>
+                        <th style="width: 250px;">Email</th>
+                        <th style="width: 200px;">Номер телефону</th>
+                        <th style="width: 400px;">Чи є привілегії адміна</th>
+                        <th style="width: 200px;">Змінити права користувача</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for users in users %}
+                    <tr style="text-align: center; border-width: 2px; border-color: black;">
+                        <td style="width: 50px; border-width: 5px; border-color: black;">{{users.id}}</td>
+                        <td style="border-width: 5px; border-color: black;">{{users.userinfo}}</td>
+                        <td style="border-width: 5px; border-color: black;">{{users.email}}</td>
+                        <td style="border-width: 5px; border-color: black;">{{users.phonenumber}}</td>
+                        <td style="border-width: 5px; border-color: black;">
+                            {% if users.is_admin == 1 %}
+                            <p>так</p>
+                            {% else %}
+                            <p>ні</p>
+                            {% endif %}
+                        </td>
+                        <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.rights_user', user_id = users.id)}}" method="post"><button class="buttonregistr">Змінити</button></form></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+<script src="{{url_for('static', filename='js/admin.js')}}"></script>
+{% endblock %}

@@ -1,3 +1,21 @@
+.flash-messages{
+    background-color: #121212;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 50px;
+    border-radius: 20px;
+    border-color: #a19898;
+    border-width: 5px;
+    border-style: solid;
+}
+.flash_message{
+    margin: 5px 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+
 /*header*/
 #header{
     padding: 0px 15px 40px;
@@ -98,8 +116,8 @@
 /*main*/
 main{
     /* height: auto;  */
-    min-height: 1000px;
     background-color: #0a0d1b;
+    min-height: 100vh;
 }
 #bottompage{
     padding-top: 100px;
@@ -155,9 +173,11 @@ footer{
     border-radius: 20px;
     width: 92%;
     margin-left: 4%;
-    display: flex; 
+    display: flex;
+    flex-wrap: wrap;
+
     align-items: center;
-    height: 40px;
+    height: auto;
 }
 #myBlock {
     width: 92%;
@@ -205,16 +225,17 @@ footer{
 
 .likeitem{
     /* margin-right: 26px; */
-    width: 20%;
-    height: 300px;
+    width: 21%;
+    height: auto;
     background-color: blue;
     margin: 5px 20px;
     border-radius: 20px;
+    
 }
 .bottominfo{
     background-color: black;
     text-align: center;
-    height: 90px;
+    height: auto;
     border-radius: 0 0 20px 20px;
 
 }
@@ -236,6 +257,7 @@ footer{
 .textregistr{
    font-size: 20px; 
    color: #FFFAF0;
+   text-align: center;
 }
 .inputregistr{
     background-color: #bebebe;
@@ -266,9 +288,10 @@ footer{
 .bg{
     justify-content: center; 
     align-items: center;
-    height: 1000px;
+    height: auto;
     max-width: 1200px;
     margin: 10px auto;
+    padding-bottom: 30px;
     background-color: #121212;
     border-radius: 20px;
 
@@ -276,6 +299,9 @@ footer{
 
 .acaunttext{
     font-size: 30px;
+    text-align: center;
+}
+.acaunttext{
     text-align: center;
 }
 
@@ -343,7 +369,8 @@ footer{
 }
 .itembg{
     background-color: #121212;
-    height: 1000px;
+    height: auto;
+    padding-bottom: 50px;
     border-radius: 20px;
 }
 .itemimg{
@@ -388,7 +415,59 @@ footer{
 
 
 
+/*admin*/
+.adminbg{
+    margin: 0 auto 30px;
+    padding-bottom: 10px;
+    max-width: 1200px;
+    border-radius: 20px;
+    background-color: #B8B4E9;
+}
+#visibleproducts{
+    display: flex;
+}
+#visibleaddproducts{
+    display: none;
+}
+
+
+.modal-row {
+    display: none;
+    background-color: #f9f9f9;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+.modal-content {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(113, 106, 106);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.order-items{
+    padding: 20px;
+    
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination a, .pagination span{
+    background-color: #fad901;
+    color: #000;
+    padding: 10px;
+}
 
 
 
+.pagination span.disabled {
+    background-color: #fad901f7; /* Світло-сірий для неактивних кнопок */
+    cursor: not-allowed;
+}
 
