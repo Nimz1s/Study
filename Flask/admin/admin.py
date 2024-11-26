@@ -36,7 +36,7 @@ def order_details(order_id):
     conn = get_conect_bd()
     order = conn.execute('SELECT * FROM orders WHERE id = ?', (order_id,)).fetchone()
     items = conn.execute('SELECT b.quantity, p.id, p.name_product, p.price FROM basket b JOIN products p ON b.product_id = p.id WHERE b.orders_id = ?', (order_id,)).fetchall()
-
+    conn.close()
     return render_template('order_details.html', order=order, items=items)
 
 

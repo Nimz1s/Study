@@ -4,7 +4,7 @@
 </head>
 {% block content %}
 <div class="item">
-    <div class="itembg">
+    <div class="itembg" style="padding-top: 20px;">
         <div style="margin: 0 auto; max-width: 600px;">
             <div class="itemimg">
                 <img src="{{ url_for('static', filename=item.main_img) }}" alt="" style="width: 600px;">
@@ -16,10 +16,10 @@
                 <div class="itemtext" style="width: 700px;">
                     <h2>{{ item.info_for_product }}</h2>
                 </div>
-                <div style="background-color: aliceblue; width: 300px; height: 140px; border-radius: 20px;">
+                <div style="background-color: #3a3b3df2; margin-left: 20px; width: 300px; height: 140px; border-radius: 20px; padding: 10px;">
                     <div style="display: flex;">
-                        <p style="font-size: 40px; margin-left: 6px;">Ціна:</p>
-                        <p style="align-content: center; font-size: 30px; font-weight: 700; margin: 10px auto 0;">{{ item.price }}</p>
+                        <h3 style="font-size: 40px; margin-left: 6px;">Ціна: </h3>
+                        <p style="align-content: center; font-size: 30px; font-weight: 700; margin: 10px auto 0;"><h1> {{ item.price }}</h1></p>
                     </div>
                     <div style="display: flex; justify-content: space-evenly; margin-top: 20px;">
                         <form action="{{ url_for('basket_bp.add_to_basket', item_id=item.id) }}" method="post">

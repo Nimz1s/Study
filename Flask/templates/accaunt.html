@@ -15,14 +15,22 @@
             <img src="{{url_for('static', filename='img/1.png')}}" alt="Photo" style="border-radius: 50px; width: 20%; margin: 3% 40%;">
         </div>
         <div class="acaunttext">
-            <h2>ПІБ(Призвіще Ім'я По-батькові)</h2>
-            <h3 style="margin-bottom: 30px;">{{user['userinfo']}}</h3>
-            <h2>email</h2>
-            <h3 style="margin-bottom: 30px;">{{ user['email'] }}</h3>
-            <h2>Телефон</h2>
-            <h3 style="margin-bottom: 30px;">{{user['phonenumber']}}</h3>    
-            <h2>Особисті дані</h2>
-            <h3></h3>
+            <div class="accauntstyle">
+                <h2>ПІБ(Призвіще Ім'я По-батькові)</h2>
+                <h3 style="margin-bottom: 30px;">{{user['userinfo']}}</h3>
+            </div>
+            <div class="accauntstyle">
+                <h2>email</h2>
+                <h3 style="margin-bottom: 30px;">{{ user['email'] }}</h3>
+            </div>
+            <div class="accauntstyle">
+                <h2>Телефон</h2>
+                <h3 style="margin-bottom: 30px;">{{user['phonenumber']}}</h3>  
+            </div>
+            <div class="accauntstyle">
+                <h2>Особисті дані</h2>
+                <h3></h3>
+            </div>
         </div>
         <br>
         <div class="where" >

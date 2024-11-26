@@ -11,6 +11,7 @@ from user.accaunt import accaunts_bp
 from shop.basket import basket_bp
 from shop.like import like_bp
 from admin.admin import admin_bp
+from API.api import api_bp
 
 
 
@@ -35,10 +36,8 @@ app.register_blueprint(accaunt_bp)
 app.register_blueprint(accaunts_bp)
 app.register_blueprint(basket_bp)
 app.register_blueprint(like_bp)
-
-
-
 app.register_blueprint(admin_bp)
+app.register_blueprint(api_bp)
 
 
 

@@ -27,14 +27,14 @@
                 <tbody>
                     {% for order in order %}
                     <tr style="text-align: center;">
-                        <td style="width: 40px; border-width: 5px; border-color: black;">{{order.id}}</td>
-                        <td style=" border-width: 5px; border-color: black;">{{order.lastname}} {{order.firstname}}</td>
-                        <td style=" border-width: 5px; border-color: black;">{{order.email}}</td>
-                        <td style=" border-width: 5px; border-color: black;">{{order.phone}}</td>
-                        <td style=" border-width: 5px; border-color: black;">{{order.sub_choice}}</td>
-                        <td style=" border-width: 5px; border-color: black;">{{order.data}}</td>
-                        <td style=" border-width: 5px; border-color: black;">{{order.status}}</td>
-                        <td style=" border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.order_details', order_id=order.id)}}" method="post"><button class="buttonregistr">Редагувати</button></form></td>
+                        <td style="width: 40px; border: 2px solid #0d0d0d5c; ">{{order.id}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{order.lastname}} {{order.firstname}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{order.email}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{order.phone}}</td>
+                        <td style=" border: 2px solid #0d0d0d5c; ">{{order.sub_choice}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{order.data}}</td>
+                        <td style=" border: 2px solid #0d0d0d5c; ">{{order.status}}</td>
+                        <td style=" border: 2px solid #0d0d0d5c; "><form action="{{url_for('admin_bp.order_details', order_id=order.id)}}" method="post"><button class="buttonregistr">Редагувати</button></form></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -59,13 +59,13 @@
                 </thead>
                 <tbody>
                     {% for feedbacks in feedbacks %}
-                    <tr style="text-align: center; border-width: 2px; border-color: black;">
-                        <td style="width: 50px; border-width: 5px; border-color: black;">{{feedbacks.id}}</td>
-                        <td style="border-width: 5px; border-color: black;">{{feedbacks.user_info}}</td>
-                        <td style="border-width: 5px; border-color: black;">{{feedbacks.email}}</td>
-                        <td style="border-width: 5px; border-color: black;">{{feedbacks.data}}</td>
-                        <td style="border-width: 5px; border-color: black;"><p style="width: 400px; overflow-wrap: break-word;"> {{feedbacks.message}} </p></td>
-                        <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.delete_feedback', id=feedbacks['id'])}}" method="post"><button method="submit" class="buttonregistr">Видалити</button></form></td>
+                    <tr style="text-align: center; border: 2px solid #0d0d0d5c; ">
+                        <td style="width: 50px; border: 2px solid #0d0d0d5c; ">{{feedbacks.id}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{feedbacks.user_info}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{feedbacks.email}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{feedbacks.data}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; "><p style="width: 400px; overflow-wrap: break-word;"> {{feedbacks.message}} </p></td>
+                        <td style="border: 2px solid #0d0d0d5c; "><form action="{{url_for('admin_bp.delete_feedback', id=feedbacks['id'])}}" method="post"><button method="submit" class="buttonregistr">Видалити</button></form></td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -80,7 +80,7 @@
             <button class="buttonregistr" style="font-size: 20px;" onclick="product()">Список товарів</button>
             <button class="buttonregistr" style="font-size: 20px;" onclick="addproduct()">Додати товар</button>
         </div>
-        <div style="background-color: #687461; border-radius: 20px; height: auto; width: 1100px; margin: 0 auto;">
+        <div style="border-radius: 20px; height: auto; margin: 0 auto;">
             <div id="visibleproducts">
                 <table style="width: 90%; margin: 20px auto;">
                     <thead>
@@ -96,14 +96,14 @@
                     </thead>
                     <tbody>
                         {% for products in products %}
-                        <tr style="text-align: center; border-width: 2px; border-color: black;">
-                            <td style="width: 50px; border-width: 5px; border-color: black;">{{products.id}}</td>
-                            <td style="border-width: 5px; border-color: black;">{{products.name_product}}</td>
-                            <td style="border-width: 5px; border-color: black;"><p style="width: 400px; overflow-wrap: break-word;">{{products.info_for_product}}</p></td>
-                            <td style="border-width: 5px; border-color: black;">{{products.price}}</td>
-                            <td style="border-width: 5px; border-color: black;">{{products.main_img}}</td>
-                            <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.details', product_id=products.id)}}"><button class="buttonregistr">Редагувати</button></form></td>
-                            <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.delete_product', products_id=products.id)}}" method="post"><button method="submit" class="buttonregistr" style="background-color: rgb(238, 13, 13);">Видалити</button></form></td>
+                        <tr style="text-align: center; border: 2px solid #0d0d0d5c; ">
+                            <td style="width: 50px; border: 2px solid #0d0d0d5c; ">{{products.id}}</td>
+                            <td style="border: 2px solid #0d0d0d5c; ">{{products.name_product}}</td>
+                            <td style="border: 2px solid #0d0d0d5c; "><p style="width: 400px; overflow-wrap: break-word;">{{products.info_for_product}}</p></td>
+                            <td style="border: 2px solid #0d0d0d5c; ">{{products.price}}</td>
+                            <td style="border: 2px solid #0d0d0d5c; ">{{products.main_img}}</td>
+                            <td style="border: 2px solid #0d0d0d5c; "><form action="{{url_for('admin_bp.details', product_id=products.id)}}"><button class="buttonregistr">Редагувати</button></form></td>
+                            <td style="border: 2px solid #0d0d0d5c; "><form action="{{url_for('admin_bp.delete_product', products_id=products.id)}}" method="post"><button method="submit" class="buttonregistr" style="background-color: rgb(238, 13, 13);">Видалити</button></form></td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -111,7 +111,7 @@
             </div>
         </div>
 
-        <div style="background-color: #687461; border-radius: 20px; height: auto; width: 1000px; margin: 0 auto;">
+        <div style="border-radius: 20px; height: auto; width: 1000px; margin: 0 auto;">
             <div id="visibleaddproducts" style="padding: 40px;">
                 <div>
                     <form action="{{ url_for('admin_bp.add_product') }}" method="post" enctype="multipart/form-data">
@@ -147,19 +147,19 @@
                 </thead>
                 <tbody>
                     {% for users in users %}
-                    <tr style="text-align: center; border-width: 2px; border-color: black;">
-                        <td style="width: 50px; border-width: 5px; border-color: black;">{{users.id}}</td>
-                        <td style="border-width: 5px; border-color: black;">{{users.userinfo}}</td>
-                        <td style="border-width: 5px; border-color: black;">{{users.email}}</td>
-                        <td style="border-width: 5px; border-color: black;">{{users.phonenumber}}</td>
-                        <td style="border-width: 5px; border-color: black;">
+                    <tr style="text-align: center; border: 2px solid #0d0d0d5c; ">
+                        <td style="width: 50px; border: 2px solid #0d0d0d5c; ">{{users.id}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{users.userinfo}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{users.email}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">{{users.phonenumber}}</td>
+                        <td style="border: 2px solid #0d0d0d5c; ">
                             {% if users.is_admin == 1 %}
                             <p>так</p>
                             {% else %}
                             <p>ні</p>
                             {% endif %}
                         </td>
-                        <td style="border-width: 5px; border-color: black;"><form action="{{url_for('admin_bp.rights_user', user_id = users.id)}}" method="post"><button class="buttonregistr">Змінити</button></form></td>
+                        <td style="border: 2px solid #0d0d0d5c; "><form action="{{url_for('admin_bp.rights_user', user_id = users.id)}}" method="post"><button class="buttonregistr">Змінити</button></form></td>
                     </tr>
                     {% endfor %}
                 </tbody>

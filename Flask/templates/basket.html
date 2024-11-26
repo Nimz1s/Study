@@ -10,7 +10,7 @@
             
         {% if basket_items %}
             {% for item in basket_items%}
-                <div class="item" style="display: flex; border: 2px solid #000; padding: 0; margin: 0 0 20px; background-color: #201f1f;" data-item-id="{{ item.id }}">
+                <div class="item" style="display: flex;border: 2px solid #0d0d0d5c;padding: 0;margin: 0 0 20px;background-color: #fdddb324;border-radius: 20px;" data-item-id="{{ item.id }}">
                     <div class="basketimg">
                         <a href=""><img src="{{ url_for('static', filename=item.main_img) }}" alt="Photo" class="basketimg"></a>
                     </div>
@@ -31,14 +31,14 @@
                         </div>
                     </div>
                 </div>
-                <div style="height: 40px; display: flex; justify-content: flex-end;">
+                <div style="height: 40px; display: flex; justify-content: flex-end; margin-bottom: 10px;">
                     <form action="{{ url_for('basket_bp.remove_from_basket', item_id=item.id) }}" method="post">
-                        <button type="submit" class="buttonregistr">Видалити товар</button>
+                        <button type="submit" class="buttonregistr" style="padding: 3px 15px 0;"><h6>Видалити товар</h6></button>
                     </form>
                 </div>
             {% endfor %}
         <form action="{{ url_for('basket_bp.checkout') }}" method="post">
-            <div style="padding-bottom: 10px; margin-bottom: 10px;">
+            <div style="padding-bottom: 10px;margin-bottom: 10px;background-color: #fdddb324;border-radius: 20px;">
                 <h1 style="text-align: center;">Доставка</h1>
                 <label style="margin: 10px 50px 0px; font-size: 40px; display: flex;">
                     <input type="radio" name="main_choice" value="our_shop" onclick="toggleSelect('shopSelect')">
@@ -62,18 +62,18 @@
                     <h2 style="text-align: center;">Виберіть відділення нової пошти:</h2>
                     <div style="display: grid; justify-content: center; padding-bottom: 30px;">
                         <select id="novaPoshta" style="width: 500px; font-size: 20px;" name="sub1_choice">
-                            <option value="Нова Почта№ 1">Нова Почта№ 1</option>
-                            <option value="Нова Почта№ 2">Нова Почта№ 2</option>
-                            <option value="Нова Почта№ 3">Нова Почта№ 3</option>
-                            <option value="Нова Почта№ 4">Нова Почта№ 4</option>
-                            <option value="Нова Почта№ 5">Нова Почта№ 5</option>
+                            <option value="Нова Пошта№ 1">Нова Пошта№ 1</option>
+                            <option value="Нова Пошта№ 2">Нова Пошта№ 2</option>
+                            <option value="Нова Пошта№ 3">Нова Пошта№ 3</option>
+                            <option value="Нова Пошта№ 4">Нова Пошта№ 4</option>
+                            <option value="Нова Пошта№ 5">Нова Пошта№ 5</option>
                         </select>
                     </div>
                 </div>
             </div>
             
             <!-- Контактна інформація -->
-            <div>
+            <div style="background-color: #fdddb324;border-radius: 20px;padding-bottom: 10px;">
                 <h1 style="text-align: center;">Контактна інформація</h1>
                 <div style="display: flex; justify-content: space-around;">
                     <div>
@@ -102,7 +102,7 @@
             </div>
             
                 <div style="display: flex; justify-content: center; margin-top: 60px;">
-                    <button id="submit" style="font-size: 35px;" class="buttonregistr">Підтвердити замовлення</button>
+                    <button id="submit" style="font-size: 35px;" class="buttonregistr"><h2>Підтвердити замовлення</h2></button>
                 </div>
         </form>
         </div>

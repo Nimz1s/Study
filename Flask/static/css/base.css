@@ -1,5 +1,5 @@
 .flash-messages{
-    background-color: #121212;
+    background-color: #7d4e10c9;
     max-width: 1000px;
     margin: 0 auto;
     height: 50px;
@@ -43,7 +43,7 @@
 
 .navbar{
     display: flex;
-    background-color: #101010;
+    background-color: #728ba0;
     padding: 5px;
 }
 
@@ -70,8 +70,8 @@
 .slider-container {
     position: relative;
     width: 80%;
-    max-width: 400px;
-    height: 300px;
+    max-width: 800px;
+    height: 400px;
     overflow: hidden;
     background-color: #f1f1f1;
     margin-top: 20px;
@@ -86,7 +86,7 @@
 
 .slide img {
     width: 100%;
-    height: 300px;
+    height: 400px;
     border-radius: 10px;
 }
 
@@ -116,7 +116,7 @@
 /*main*/
 main{
     /* height: auto;  */
-    background-color: #0a0d1b;
+    background-color: #e8e8e8;
     min-height: 100vh;
 }
 #bottompage{
@@ -162,14 +162,14 @@ footer{
 /*likestart*/
 
 .bgofpage{
-    background-color: #121212;
+    background-color: #7d4d10a1;
     border-radius: 20px;
     max-width: 1400px;
     margin: 3% auto;
     height: auto;
+    padding-top: 15px;
 }
 .list{
-    background-color: #201f1f;
     border-radius: 20px;
     width: 92%;
     margin-left: 4%;
@@ -227,16 +227,17 @@ footer{
     /* margin-right: 26px; */
     width: 21%;
     height: auto;
-    background-color: blue;
-    margin: 5px 20px;
+    margin: 5px 20px 10px;
     border-radius: 20px;
+    border: 3px solid #0d0d0d87;
+    background-color: #ddb07257;
     
 }
 .bottominfo{
-    background-color: black;
     text-align: center;
     height: auto;
     border-radius: 0 0 20px 20px;
+    padding-bottom: 5px;
 
 }
 .likeimg{
@@ -251,7 +252,7 @@ footer{
     width: 600px;
     height: 550px;
     margin: 3% auto;
-    background-color: #121212;
+    background-color: #7d4d10a1;
     border-radius: 20px;
 }
 .textregistr{
@@ -263,13 +264,18 @@ footer{
     background-color: #bebebe;
     width: 80%;
     margin: 6px 10%;
+    border-radius: 10px;
 }
 .buttonregistr{
-    background-color: #fad901;
+    background-color: #698864;
     border-radius: 15px;
+    border: 2px solid #0d0d0d6e;
+    color: #FFFAF0;
+    transition: transform 0.2s ease-in-out; 
 }
 .buttonregistr:hover{
-    background-color: #ad9602;
+    background-color: #547050;
+    transform: scale(1.1);
 }
 .where{
     display: flex;
@@ -292,7 +298,7 @@ footer{
     max-width: 1200px;
     margin: 10px auto;
     padding-bottom: 30px;
-    background-color: #121212;
+    background-color: #7d4d10a1;
     border-radius: 20px;
 
 }
@@ -303,6 +309,13 @@ footer{
 }
 .acaunttext{
     text-align: center;
+}
+.accauntstyle{
+    background-color: #fdddb324; 
+    border-radius: 20px; 
+    border: 2px solid #0d0d0d5c; 
+    max-width: 800px; 
+    margin: 0 auto 20px;
 }
 
 
@@ -315,7 +328,7 @@ footer{
     border-radius: 20px;
 }
 .basketitem{
-    background-color: #121212;
+    background-color: #7d4d10a1;
     width: 800px;
     height: auto;
     margin: 15px auto 15px;
@@ -323,17 +336,18 @@ footer{
     border-radius: 20px;
 }
 .basketbuy{
-    background-color: #201f1f;
+    background-color: #3a3b3df2;
     width: 500px;
-    height: 350px;
-    margin: 15px auto ;
+    height: 260px;
+    margin: 15px auto;
     padding: 20px;
     border-radius: 20px;
     position: sticky;
     top: 110px;
 }
 .basketimg{
-    width: 180px;
+    width: 160px;
+    margin: 5px 5px;
 }
 .textitem{
     margin: 10px 20px;
@@ -363,12 +377,24 @@ footer{
 
 
 /*items start*/
+.items{
+    background-color: #fdddb324; 
+    border: 2px solid #0d0d0d5c; 
+    width: 346px; height: 346px; 
+    border-radius: 20px; 
+    margin: 0 20px 20px;
+    transition: transform 0.3s ease-in-out;
+}
+.items:hover{
+    transform: scale(1.05);
+}
+
 .item{
     max-width: 1400px;
     margin: 10px auto;
 }
 .itembg{
-    background-color: #121212;
+    background-color: #7d4d10a1;
     height: auto;
     padding-bottom: 50px;
     border-radius: 20px;
@@ -421,7 +447,9 @@ footer{
     padding-bottom: 10px;
     max-width: 1200px;
     border-radius: 20px;
-    background-color: #B8B4E9;
+    background-color: #fdddb324;
+    border: 2px solid #0d0d0d5c;
+    
 }
 #visibleproducts{
     display: flex;

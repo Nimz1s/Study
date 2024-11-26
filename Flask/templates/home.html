@@ -42,7 +42,7 @@
         </nav>
     </header>
     
-    <main>
+    <main >
         <div id="bottompage">
             <div style="height: 50px;">
                 {% with messages = get_flashed_messages() %}
@@ -68,8 +68,8 @@
             </section>
             
             <section style="margin-bottom: 80px;">
-                <div style="display: flex; margin-left: 34%">
-                    <button class="buttonregistr" style="margin: auto 0" onclick="changeSlide(-1)">&lt;</button>
+                <div style="display: flex; margin: 0 auto; max-width: 1000px;">
+                    <button class="buttonregistr" style="margin: auto 10px; padding: 10px 16px" onclick="changeSlide(-1)">&lt;</button>
                     <div class="slider-container">
                         <div class="slide active">
                             <img src="{{ url_for('static', filename='img/1.png') }}" alt="Слайд 1">
@@ -81,21 +81,21 @@
                             <img src="{{ url_for('static', filename='img/3.jpg') }}" alt="Слайд 3">
                         </div>
                     </div>
-                    <button class="buttonregistr" style="margin: auto 0" onclick="changeSlide(1)">&gt;</button>
+                    <button class="buttonregistr" style="margin: auto 10px; padding: 10px 16px" onclick="changeSlide(1)">&gt;</button>
                 </div>
             </section>
             
             <section>
                 <div>
-                    <div style="background-color: black;">
-                        <div style="margin-left: 200px; background-color: #121212; padding: 0 20px;">
+                    <div>
+                        <div style="margin-left: 200px; background-color: #7d4d10a1; padding: 20px 20px; border-radius: 20px;">
                             <div style="display: flex; flex-wrap: wrap;">
                                 {% for product in products %}
-                                    <div style="background-color: #201f1f; width: 346px; height: 346px; border-radius: 20px; margin: 0 20px 20px;">
+                                    <div class="items">
                                         <a href="{{ url_for('home.item', item_id=product['id']) }}">
-                                            <img src="{{ url_for('static', filename=product['main_img']) }}" alt="{{ product['name_product'] }}" style="width: 346px; height: 266px; border-radius: 20px 20px 0 0;">
+                                            <img src="{{ url_for('static', filename=product['main_img']) }}" alt="{{ product['name_product'] }}" style="width: 342px; height: 266px; border-radius: 20px 20px 0 0;">
                                         </a>
-                                        <h1>{{ product['name_product'] }}</h1>
+                                        <a href="{{ url_for('home.item', item_id=product['id']) }}" style="text-decoration: none;"><h1>{{ product['name_product'] }}</h1></a>
                                     </div>
                                 {% endfor %}
                             </div>
