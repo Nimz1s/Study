@@ -20,7 +20,8 @@ app = Flask(__name__)
 app.secret_key='GFihhIH934jHFGFD9jf80Mlk234MLGkln42hdvxcv'
 
 
-init_db()
+def setup():
+    init_db()
 
 
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'Flask/static/img')
@@ -66,5 +67,5 @@ def recoverynumber():
 
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

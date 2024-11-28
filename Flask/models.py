@@ -2,24 +2,25 @@ import sqlite3
 
 
 def get_conect_bd():
-    conn = sqlite3.connect('Flask/my_database.sqlite')
+    conn = sqlite3.connect('/app/my_database.sqlite')
     conn.row_factory = sqlite3.Row
     return conn
 
 
 def init_db():
-    conn = get_conect_bd()
-    conn.execute('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY AUTOINCREMENT, name_product TEXT, info_for_product TEXT, price REAL, main_img TEXT, dop_img1 TEXT, dop_img2 TEXT)')
-    conn.execute('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, userinfo TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, phonenumber INTEGER NOT NULL, password TEXT NOT NULL, is_admin INTEGER)')
-    conn.execute('CREATE TABLE IF NOT EXISTS basket(id INTEGER PRIMARY KEY AUTOINCREMENT, orders_id, user_id INTEGER NOT NULL, product_id INTEGER, quantity INTEGER, FOREIGN KEY (user_id) REFERENCES users(id), FOREIGN KEY (product_id) REFERENCES products(id))')
-    conn.execute('CREATE TABLE IF NOT EXISTS likes(id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, item_id INTEGER)')
-    conn.execute('CREATE TABLE IF NOT EXISTS orders(id INTEGER PRIMARY KEY AUTOINCREMENT, sub_choice TEXT, lastname TEXT, firstname TEXT, email TEXT, phone INTEGER, data, status TEXT)')
-    conn.execute('CREATE TABLE IF NOT EXISTS feedbacks(id INTEGER PRIMARY KEY AUTOINCREMENT, user_info TEXT, email TEXT, data, message TEXT)')
+    with sqlite3.connect('/app/my_database.sqlite') as db:
+        db = get_conect_bd()
+        db.execute('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY AUTOINCREMENT, name_product TEXT, info_for_product TEXT, price REAL, main_img TEXT, dop_img1 TEXT, dop_img2 TEXT)')
+        db.execute('CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY AUTOINCREMENT, userinfo TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, phonenumber INTEGER NOT NULL, password TEXT NOT NULL, is_admin INTEGER)')
+        db.execute('CREATE TABLE IF NOT EXISTS basket(id INTEGER PRIMARY KEY AUTOINCREMENT, orders_id, user_id INTEGER NOT NULL, product_id INTEGER, quantity INTEGER, FOREIGN KEY (user_id) REFERENCES users(id), FOREIGN KEY (product_id) REFERENCES products(id))')
+        db.execute('CREATE TABLE IF NOT EXISTS likes(id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, item_id INTEGER)')
+        db.execute('CREATE TABLE IF NOT EXISTS orders(id INTEGER PRIMARY KEY AUTOINCREMENT, sub_choice TEXT, lastname TEXT, firstname TEXT, email TEXT, phone INTEGER, data, status TEXT)')
+        db.execute('CREATE TABLE IF NOT EXISTS feedbacks(id INTEGER PRIMARY KEY AUTOINCREMENT, user_info TEXT, email TEXT, data, message TEXT)')
+        db.commit()
+        db.close()
 
-    conn.commit()
-    conn.close()
 
-with sqlite3.connect('Flask/my_database.sqlite') as db:
+with sqlite3.connect('/app/my_database.sqlite') as db:
     pass  #створює базу (вперше)
     conn = db.cursor()
     conn.execute('CREATE TABLE IF NOT EXISTS products(id INTEGER PRIMARY KEY AUTOINCREMENT, name_product TEXT, info_for_product TEXT, price REAL, main_img TEXT, dop_img1 TEXT, dop_img2 TEXT)')
