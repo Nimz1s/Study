@@ -32,7 +32,7 @@
                 <tbody>
                     {% for item in items %}
                     <tr style="text-align: center;">
-                        <td><a href="{{url_for('home.item', item_id=item.id)}}"><h3>{{ item.name_product }}</h3></a></td>
+                        <td><a href="{{url_for('home.item', item_id=item.id)}}" style="text-decoration: none;"><h3>{{ item.name_product }}</h3></a></td>
                         <td><h3>{{ item['quantity'] }}</h3></td>
                         <td><h3>{{ item['price'] }} грн</h3></td>
                         <td><h3>{{ item['price'] * item['quantity'] }} грн</h3></td>

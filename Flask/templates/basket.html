@@ -15,7 +15,7 @@
                         <a href=""><img src="{{ url_for('static', filename=item.main_img) }}" alt="Photo" class="basketimg"></a>
                     </div>
                     <div>
-                        <a href="/"><h4 class="textitem">{{ item.name_product }}</h4></a>
+                        <a href="{{ url_for('home.item', item_id=item.id) }}" style="text-decoration: none;"><h4 class="textitem">{{ item.name_product }}</h4></a>
                     </div>
                     <div class="counter">
                         <h2>Кількість:</h2>

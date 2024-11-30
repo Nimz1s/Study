@@ -18,7 +18,6 @@
 
 /*header*/
 #header{
-    padding: 0px 15px 40px;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -44,7 +43,7 @@
 .navbar{
     display: flex;
     background-color: #728ba0;
-    padding: 5px;
+    padding: 0px;
 }
 
 .logohref{
@@ -111,16 +110,27 @@
     opacity: 1;
 }
 
+
+
+
+.mainphoto{
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center
+    
+}
 /*sliderend*/
 
 /*main*/
 main{
     /* height: auto;  */
-    background-color: #6e0f0f; /*#6e6c6c*/
+    background-color: #2e2e2e;
     min-height: 100vh;
 }
 #bottompage{
-    padding-top: 100px;
     padding-bottom: 300px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -139,7 +149,7 @@ p{
 /*footer*/
 footer{
     bottom: 0px;
-    background-color: #2C2F48;
+    background-color: #728ba0;
     width: 100%;
     height: 200px;
 }
@@ -234,10 +244,11 @@ footer{
     
 }
 .bottominfo{
-    text-align: center;
-    height: auto;
+    height: 150px;
     border-radius: 0 0 20px 20px;
     padding-bottom: 5px;
+    flex-wrap: wrap;
+    align-content: flex-end;
 
 }
 .likeimg{
@@ -251,9 +262,8 @@ footer{
 .registr{
     width: 600px;
     height: 550px;
-    margin: 3% auto;
-    background-color: #7d4d10a1;
-    border-radius: 20px;
+    margin: 0 auto;
+    padding-top: 200px;
 }
 .textregistr{
    font-size: 20px; 
@@ -296,10 +306,9 @@ footer{
     align-items: center;
     height: auto;
     max-width: 1200px;
-    margin: 10px auto;
+    margin: 0 auto;
     padding-bottom: 30px;
-    background-color: #7d4d10a1;
-    border-radius: 20px;
+    padding: 150px 0 200px;
 
 }
 
@@ -323,9 +332,10 @@ footer{
 .basketbg{
     max-width: 1400px;
     height: auto;
-    margin: 15px auto;
+    margin: 0 auto;
     display: flex;
     border-radius: 20px;
+    padding: 100px 0 150px;
 }
 .basketitem{
     background-color: #7d4d10a1;
@@ -380,10 +390,11 @@ footer{
 .items{
     background-color: #fdddb324; 
     border: 2px solid #0d0d0d5c; 
-    width: 346px; height: 346px; 
+    width: 320px; 
+    height: 346px; 
     border-radius: 20px; 
-    margin: 0 20px 20px;
-    transition: transform 0.3s ease-in-out;
+    margin: 0 10px 20px;
+    transition: transform 0.1s ease-in-out;
 }
 .items:hover{
     transform: scale(1.05);
@@ -391,7 +402,8 @@ footer{
 
 .item{
     max-width: 1400px;
-    margin: 10px auto;
+    margin: 0 auto;
+    padding: 100px 0 100px;
 }
 .itembg{
     background-color: #7d4d10a1;
@@ -487,7 +499,7 @@ footer{
 }
 
 .pagination a, .pagination span{
-    background-color: #fad901;
+    background-color: #698864;
     color: #000;
     padding: 10px;
 }
@@ -495,7 +507,7 @@ footer{
 
 
 .pagination span.disabled {
-    background-color: #fad901f7; /* Світло-сірий для неактивних кнопок */
+    background-color: #698864; /* Світло-сірий для неактивних кнопок */
     cursor: not-allowed;
 }
 

@@ -12,7 +12,7 @@
         <nav id="header">
             <div class="navbar">
                 <div class="logohref">
-                    <a href="/">Hiiiiiiiiiiiii</a>
+                    <a href="/" style="text-decoration: none;"><h1>BuildPC</h1></a>
                 </div>
                 <div class="buttons">
                     <ul id="ul">
@@ -25,7 +25,7 @@
                         {% if 'user_id' in session %}
                             {% if session.get('is_admin') %}
                                 <li id="li">
-                                    <a href="/admin"><img src="{{ url_for('static', filename='img/basket.png') }}" style="width: 40px; height: 40px; margin-top: 5px;"></a>
+                                    <a href="/admin"><button class="buttonregistr" style="height: 50px;">ADMIN</button></a>
                                 </li>
                             {% endif %}
                             <li id="li">
@@ -43,8 +43,8 @@
     </header>
     
     <main >
-        <div id="bottompage">
-            <div style="height: 50px;">
+
+            <div style="height: 50px; z-index: 1000; position: absolute; left: 50%; transform: translate(-50%, -50%); padding-top: 150px;">
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                     <div class="flash-messages">
@@ -57,72 +57,91 @@
             </div>
         
         {% block content %}
-        <div style="max-width: 1400px; margin: 0 auto;">
-            <section>
-                <div></div>
-            </section>
+        <div>
             
-            <section>
-                <h1 class="top">Цей текст поміняти</h1>
-                <h2 class="top">Ми інтернет магазин з продажу ...</h2>
-            </section>
             
-            <section style="margin-bottom: 80px;">
-                <div style="display: flex; margin: 0 auto; max-width: 1000px;">
-                    <button class="buttonregistr" style="margin: auto 10px; padding: 10px 16px" onclick="changeSlide(-1)">&lt;</button>
-                    <div class="slider-container">
-                        <div class="slide active">
-                            <img src="{{ url_for('static', filename='img/1.png') }}" alt="Слайд 1">
-                        </div>
-                        <div class="slide">
-                            <img src="{{ url_for('static', filename='img/2.jpg') }}" alt="Слайд 2">
-                        </div>
-                        <div class="slide">
-                            <img src="{{ url_for('static', filename='img/3.jpg') }}" alt="Слайд 3">
-                        </div>
-                    </div>
-                    <button class="buttonregistr" style="margin: auto 10px; padding: 10px 16px" onclick="changeSlide(1)">&gt;</button>
+            <section class="mainphoto" style="background-image: url('{{url_for('static', filename='img/siteimg/program-15.jpg')}}');">
+                <div>
+                    <h1 class="top" style="font-size: 70px;">BuildPC</h1>
+                    <p style="color: #FFFAF0; font-size: 30px; width: 800px;">твій надійний шлях до ідеального ПК! Обирай, замовляй, збирай – усе для твоїх потреб в одному місці.</p>
+                    <button onclick="scrollToSection('target-section')" class="buttonregistr" style="margin: 30px 41%;">Перейти товарів</button>
+                </div>
+                
+                
+                
+            </section>
+            <section>
+                <div style="background: linear-gradient(to bottom, #000000, #2e2e2e); margin-bottom: 40px; padding-top: 20px; text-align: center;">
+                    <p style="color: #FFFAF0; font-size: 30px;">Чому обирають нас?<br>
+
+                        Широкий асортимент. У нас ви знайдете все: від процесорів і відеокарт до блоків живлення та корпусів. <br>
+                        Якість і гарантія. Пропонуємо тільки сертифіковану продукцію з офіційною гарантією. <br> 
+                        Підтримка клієнтів. Наша команда готова допомогти з вибором компонентів та відповісти на всі ваші запитання. <br>
+                        Швидка доставка. Забезпечуємо зручні умови доставки по всій країні.</p>
                 </div>
             </section>
+            <div style="max-width: 1400px; margin: 0 auto;">
+
             
-            <section>
-                <div>
+                <section style="margin-bottom: 80px;">
+                    <div style="display: flex; margin: 0 auto; max-width: 1000px;">
+                        <button class="buttonregistr" style="margin: auto 10px; padding: 10px 16px" onclick="changeSlide(-1)">&lt;</button>
+                        <div class="slider-container">
+                            <div class="slide active">
+                                <img src="{{ url_for('static', filename='img/5_5600x.png') }}" alt="Слайд 1">
+                            </div>
+                            <div class="slide">
+                                <img src="{{ url_for('static', filename='img/9_14900ks.png') }}" alt="Слайд 2">
+                            </div>
+                            <div class="slide">
+                                <a href="{{ url_for('home.item', item_id=11) }}">
+                                    <img src="{{ url_for('static', filename='img/kingstin_16gb.jpg') }}" alt="Слайд 3">
+                                </a>
+                            </div>
+                        </div>
+                        <button class="buttonregistr" style="margin: auto 10px; padding: 10px 16px" onclick="changeSlide(1)">&gt;</button>
+                    </div>
+                </section>
+                
+                <section>
                     <div>
-                        <div style="margin-left: 200px; background-color: #7d4d10a1; padding: 20px 20px; border-radius: 20px;">
-                            <div style="display: flex; flex-wrap: wrap;">
-                                {% for product in products %}
-                                    <div class="items">
-                                        <a href="{{ url_for('home.item', item_id=product['id']) }}">
-                                            <img src="{{ url_for('static', filename=product['main_img']) }}" alt="{{ product['name_product'] }}" style="width: 342px; height: 266px; border-radius: 20px 20px 0 0;">
-                                        </a>
-                                        <a href="{{ url_for('home.item', item_id=product['id']) }}" style="text-decoration: none;"><h1>{{ product['name_product'] }}</h1></a>
-                                    </div>
-                                {% endfor %}
+                        <div id="target-section">
+                            <div style="background-color: #7d4d10a1; padding: 20px 20px; border-radius: 20px;">
+                                <div style="display: flex; flex-wrap: wrap;">
+                                    {% for product in products %}
+                                        <div class="items">
+                                            <a href="{{ url_for('home.item', item_id=product['id']) }}">
+                                                <img src="{{ url_for('static', filename=product['main_img']) }}" alt="{{ product['name_product'] }}" style="width: 317px; height: 266px; border-radius: 20px 20px 0 0;">
+                                            </a>
+                                            <a href="{{ url_for('home.item', item_id=product['id']) }}" style="text-decoration: none;"><h1 style="font-size: 18px;">{{ product['name_product'] }}</h1></a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            
-            <!-- Пагінація -->
-            <div style="text-align: center; margin-top: 20px;" class="pagination">
-                {% if page > 1 %}
-                    <a href="{{ url_for('home.main', page=page-1) }}" class="buttonregistr">Попередня</a>
-                {% endif %}
+                </section>
                 
-                {% for p in range(1, total_pages + 1) %}
-                    {% if p == page %}
-                        <span class="btn btn-secondary disabled">{{ p }}</span>
-                    {% else %}
-                        <a href="{{ url_for('home.main', page=p) }}" class="btn btn-primary">{{ p }}</a>
+                <!-- Пагінація -->
+                <div style="text-align: center; margin-top: 20px;" class="pagination">
+                    {% if page > 1 %}
+                        <a href="{{ url_for('home.main', page=page-1) }}" class="buttonregistr">Попередня</a>
                     {% endif %}
-                {% endfor %}
-                
-                {% if page < total_pages %}
-                    <a href="{{ url_for('home.main', page=page+1) }}" class="buttonregistr">Наступна</a>
-                {% endif %}
+                    
+                    {% for p in range(1, total_pages + 1) %}
+                        {% if p == page %}
+                            <span class="btn btn-secondary disabled">{{ p }}</span>
+                        {% else %}
+                            <a href="{{ url_for('home.main', page=p) }}" class="btn btn-primary">{{ p }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {% if page < total_pages %}
+                        <a href="{{ url_for('home.main', page=page+1) }}" class="buttonregistr">Наступна</a>
+                    {% endif %}
+                </div>
             </div>
-        </div>
+
         {% endblock %}
     </main>
     
@@ -159,6 +178,15 @@
         setInterval(() => {
             changeSlide(1);
         }, 5000);
+
+
+
+
+        function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({
+            behavior: 'smooth'  // плавне прокручування
+        });
+    }
     </script>
     
     <script rel="stylesheet" src="{{ url_for('static', filename='js/main.js') }}"></script>

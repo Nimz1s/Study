@@ -5,7 +5,7 @@
 </head>
 
 {% block content %}
-<div>
+<div style="padding-top: 150px;">
     <h1 class="centertext" style="color: black;">Список вподобань</h1>
 </div>
 <div class="bgofpage">
@@ -19,10 +19,10 @@
                     <img src="{{ url_for('static', filename=item.main_img) }}" alt="{{ item.name_product }}" class="likeimg">
                 </a>
                 <div class="bottominfo">
-                    <h1>{{ item.name_product }}</h1>
+                    <h1 style="font-size: 18px;">{{ item.name_product }}</h1>
                     <h3>{{ item.price }} грн</h3>
                     <form method="POST" action="{{url_for('like_bp.remove_from_like', item_id=item.id)}}">
-                        <button type="submit" class="buttonregistr" style="padding: 3px 15px 0;"><h6>Видалити предмет</h6></button>
+                        <button type="submit" class="buttonregistr" style="padding: 3px 15px 0; width: 200px; margin-left: 10px;"><h6>Видалити предмет</h6></button>
                     </form>
                 </div>
             </div>

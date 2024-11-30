@@ -5,7 +5,7 @@ from math import ceil
 home_bp = Blueprint('home', __name__)
 
 # Визначаємо кількість продуктів на сторінку
-PRODUCTS_PER_PAGE = 21
+PRODUCTS_PER_PAGE = 24
 
 @home_bp.route('/', methods=['POST', 'GET'])
 def main():

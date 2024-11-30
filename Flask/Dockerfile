@@ -7,6 +7,9 @@ WORKDIR /app
 # Копіюємо всі файли проекту в контейнер
 COPY . /app
 
+# Створюємо директорію Flask для бази даних
+RUN mkdir -p Flask
+
 # Встановлюємо залежності
 RUN pip install --no-cache-dir -r requirements.txt
 
