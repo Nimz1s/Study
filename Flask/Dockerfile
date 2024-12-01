@@ -2,13 +2,10 @@
 FROM python:3.10-slim
 
 # Встановлюємо робочу директорію в контейнері
-WORKDIR /app
+WORKDIR /Flask
 
 # Копіюємо всі файли проекту в контейнер
-COPY . /app
-
-# Створюємо директорію Flask для бази даних
-RUN mkdir -p Flask
+COPY . /Flask
 
 # Встановлюємо залежності
 RUN pip install --no-cache-dir -r requirements.txt
